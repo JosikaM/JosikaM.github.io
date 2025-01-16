@@ -4,286 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JosikaMurthy - Frontend Developer & AI Enthusiast</title>
-    <style>
-        /* Reset and base styles */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        body {
-            font-family: 'Arial', sans-serif;
-            line-height: 1.6;
-            color: #333;
-            overflow-x: hidden;
-        }
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px; 
-        }
-        /* Header styles */
-        header {
-            background-color: rgba(255, 255, 255, 0.9);
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 1000;
-            transition: background-color 0.3s ease;
-        }
-        header.scrolled {
-            background-color: #fff;
-        }
-        nav ul {
-            display: flex;
-            justify-content: center;
-            list-style-type: none;
-            padding: 1rem 0;
-        }
-        nav ul li {
-            margin: 0 1rem;
-        }
-        nav ul li a {
-            text-decoration: none;
-            color: #333;
-            font-weight: bold;
-            transition: color 0.3s ease;
-        }
-        nav ul li a:hover {
-            color: #A881CD;
-        }
-        /* Hero section styles */
-        #home {
-            background-color: #A881CD;
-            color: #fff;
-            padding: 8rem 0 4rem;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-        #home::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(45deg, #A881CD, #8A63A8);
-            transform: skewY(-5deg);
-            transform-origin: top left;
-            z-index: -1;
-        }
-        #home h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            opacity: 0;
-            transform: translateY(20px);
-            animation: fadeInUp 0.8s forwards;
-        }
-        #home p {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-            opacity: 0;
-            transform: translateY(20px);
-            animation: fadeInUp 0.8s 0.2s forwards;
-        }
-        @keyframes fadeInUp {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        .cta-button {
-            display: inline-block;
-            background-color: #fff;
-            color: #A881CD;
-            padding: 0.8rem 2rem;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: all 0.3s ease;
-            opacity: 0;
-            transform: translateY(20px);
-            animation: fadeInUp 0.8s 0.4s forwards;
-        }
-        .cta-button:hover {
-            background-color: #f1f1f1;
-            transform: translateY(-3px);
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-        }
-        /* Section styles */
-        section {
-            padding: 6rem 0;
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.8s, transform 0.8s;
-        }
-        section.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        section h2 {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-            color: #A881CD;
-        }
-        /* About section styles */
-        #about {
-            background-color: #f9f9f9;
-        }
-        /* Skills section styles */
-        #skills .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-            gap: 2rem;
-            justify-items: center;
-        }
-        .skill-item {
-            text-align: center;
-            transition: transform 0.3s ease;
-        }
-        .skill-item:hover {
-            transform: translateY(-5px);
-        }
-        .skill-item img {
-            width: 60px;
-            height: 60px;
-            margin-bottom: 0.5rem;
-            transition: transform 0.3s ease;
-        }
-        .skill-item:hover img {
-            transform: scale(1.1);
-        }
-        /* Education section styles */
-        #education .education-item {
-            margin-bottom: 2rem;
-            padding-left: 1rem;
-            border-left: 4px solid #A881CD;
-            transition: all 0.3s ease;
-        }
-        #education .education-item:hover {
-            transform: translateX(10px);
-            box-shadow: -5px 0 10px rgba(168, 129, 205, 0.2);
-        }
-        #education .education-item h3 {
-            font-size: 1.2rem;
-            margin-bottom: 0.5rem;
-            color: #A881CD;
-        }
-        /* Projects section styles */
-        #projects .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-        .project-card {
-            background-color: #fff;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
-        }
-        .project-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-        }
-        .project-card img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            transition: transform 0.3s ease;
-        }
-        .project-card:hover img {
-            transform: scale(1.05);
-        }
-        .project-card .project-info {
-            padding: 1.5rem;
-        }
-        .project-card h3 {
-            font-size: 1.2rem;
-            margin-bottom: 1rem;
-            color: #A881CD;
-        }
-        .project-card .project-links {
-            margin-top: 1rem;
-        }
-        .project-card .project-links a {
-            color: #A881CD;
-            text-decoration: none;
-            margin-right: 1rem;
-            transition: color 0.3s ease;
-        }
-        .project-card .project-links a:hover {
-            color: #8A63A8;
-        }
-        /* Contact section styles */
-        #contact form {
-            max-width: 500px;
-            margin: 0 auto;
-        }
-        #contact .form-group {
-            margin-bottom: 1.5rem;
-        }
-        #contact label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: bold;
-            color: #A881CD;
-        }
-        #contact input,
-        #contact textarea {
-            width: 100%;
-            padding: 0.8rem;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            transition: border-color 0.3s ease;
-        }
-        #contact input:focus,
-        #contact textarea:focus {
-            outline: none;
-            border-color: #A881CD;
-        }
-        #contact button {
-            background-color: #A881CD;
-            color: #fff;
-            border: none;
-            padding: 0.8rem 2rem;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 1rem;
-            transition: all 0.3s ease;
-        }
-        #contact button:hover {
-            background-color: #8A63A8;
-            transform: translateY(-3px);
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-        }
-        /* Responsive styles */
-        @media (max-width: 768px) {
-            nav ul {
-                flex-wrap: wrap;
-            }
-            nav ul li {
-                margin: 0.5rem;
-            }
-            #home h1 {
-                font-size: 2.5rem;
-            }
-            #home p {
-                font-size: 1rem;
-            }
-            section {
-                padding: 4rem 0;
-            }
-            section h2 {
-                font-size: 2rem;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon"> 
 </head>
 <body>
     <header>
@@ -301,7 +26,7 @@
 
     <main>
         <section id="home">
-            <div class="container">
+            <div class="container" data-aos="fade-up" data-aos-delay="100" data-aos-duration="800" data-aos-easing="ease-in-out">
                 <h1>JosikaMurthy</h1>
                 <p>Frontend Developer | AI Enthusiast</p>
                 <a href="#contact" class="cta-button">Get in Touch</a>
@@ -309,7 +34,7 @@
         </section>
 
         <section id="about">
-            <div class="container">
+            <div class="container" data-aos="fade-up" data-aos-delay="300" data-aos-duration="800" data-aos-easing="ease-in-out">
                 <h2>About Me</h2>
                 <p>I'm a passionate web developer with a keen interest in AI and machine learning. With a strong foundation in frontend technologies and a growing expertise in AI, I strive to create innovative and user-friendly web applications that leverage the power of artificial intelligence.</p><br>
                 <p>My journey in tech started with mastering C and C++, which gave me a solid understanding of programming fundamentals. I then ventured into web development, becoming proficient in HTML, CSS, and JavaScript. Currently, I'm focused on modern frontend frameworks like React and Next.js, while also exploring the exciting world of AI and its applications in web development.</p>
@@ -317,47 +42,47 @@
         </section>
 
         <section id="skills">
-            <div class="container">
+            <div class="container" data-aos="fade-up" data-aos-duration="800" data-aos-easing="ease-in-out">
                 <h2>My Skills</h2>
                 <div class="skills-grid">
-                    <div class="skill-item">
-                        <img src="images1.png" alt="HTML">
+                    <div class="skill-item" data-aos="fade-up" data-aos-delay="100" data-aos-duration="800" data-aos-easing="ease-in-out">
+                        <img src="images/images1.png" alt="HTML">
                         <span>HTML</span>
                     </div>
-                    <div class="skill-item">
-                        <img src="image2.svg" alt="CSS">
+                    <div class="skill-item" data-aos="fade-up" data-aos-delay="200" data-aos-duration="800" data-aos-easing="ease-in-out">
+                        <img src="images/image2.svg" alt="CSS">
                         <span>CSS</span>
                     </div>
-                    <div class="skill-item">
-                        <img src="images3.webp" alt="JavaScript">
+                    <div class="skill-item" data-aos="fade-up" data-aos-delay="300" data-aos-duration="800" data-aos-easing="ease-in-out">
+                        <img src="images/images3.webp" alt="JavaScript">
                         <span>JavaScript</span>
                     </div>
-                    <div class="skill-item">
-                        <img src="React.webp" alt="React">
+                    <div class="skill-item" data-aos="fade-up" data-aos-delay="400" data-aos-duration="800" data-aos-easing="ease-in-out">
+                        <img src="images/React.webp" alt="React">
                         <span>React</span>
                     </div>
-                    <div class="skill-item">
-                        <img src="nextjs.png" alt="Next.js">
+                    <div class="skill-item" data-aos="fade-up" data-aos-delay="500" data-aos-duration="800" data-aos-easing="ease-in-out">
+                        <img src="images/nextjs.png" alt="Next.js">
                         <span>Next.js</span>
                     </div>
-                    <div class="skill-item">
-                        <img src="images.jpeg" alt="Python">
+                    <div class="skill-item" data-aos="fade-up" data-aos-delay="600" data-aos-duration="800" data-aos-easing="ease-in-out">
+                        <img src="images/images.jpeg" alt="Python">
                         <span>Python</span>
                     </div>
-                    <div class="skill-item">
-                        <img src="c.png" alt="C">
+                    <div class="skill-item" data-aos="fade-up" data-aos-delay="700" data-aos-duration="800" data-aos-easing="ease-in-out">
+                        <img src="images/c.png" alt="C">
                         <span>C</span>
                     </div>
-                    <div class="skill-item">
-                        <img src="c++.png" alt="C++">
+                    <div class="skill-item" data-aos="fade-up" data-aos-delay="800" data-aos-duration="800" data-aos-easing="ease-in-out">
+                        <img src="images/c++.png" alt="C++">
                         <span>C++</span>
                     </div>
-                    <div class="skill-item">
-                        <img src="TensorFlow.png" alt="TensorFlow">
+                    <div class="skill-item" data-aos="fade-up" data-aos-delay="900" data-aos-duration="800" data-aos-easing="ease-in-out">
+                        <img src="images/TensorFlow.png" alt="TensorFlow">
                         <span>TensorFlow</span>
                     </div>
-                    <div class="skill-item">
-                        <img src="pytorch.png" alt="PyTorch">
+                    <div class="skill-item" data-aos="fade-up" data-aos-delay="1000" data-aos-duration="800" data-aos-easing="ease-in-out">
+                        <img src="images/pytorch.png" alt="PyTorch">
                         <span>PyTorch</span>
                     </div>
                 </div>
@@ -365,19 +90,19 @@
         </section>
 
         <section id="education">
-            <div class="container">
+            <div class="container" data-aos="fade-up" data-aos-duration="800" data-aos-easing="ease-in-out">
                 <h2>Education</h2>
-                <div class="education-item">
+                <div class="education-item" data-aos="fade-up" data-aos-delay="100" data-aos-duration="800" data-aos-easing="ease-in-out">
                     <h3>Bachelor of Computer Science and Engineering</h3>
                     <p>Karpagam University</p>
                     <p>2022 - 2026</p>
                 </div>
-                <div class="education-item">
+                <div class="education-item" data-aos="fade-up" data-aos-delay="200" data-aos-duration="800" data-aos-easing="ease-in-out">
                     <h3>HSC</h3>
                     <p>Nalandas Matric Hr Sec School</p>
                     <p>2020</p>
                 </div>
-                <div class="education-item">
+                <div class="education-item" data-aos="fade-up" data-aos-delay="300" data-aos-duration="800" data-aos-easing="ease-in-out">
                     <h3>SSLC</h3>
                     <p>Govt Girls Hr Sec School</p>
                     <p>2018</p>
@@ -386,11 +111,11 @@
         </section>
 
         <section id="projects">
-            <div class="container">
+            <div class="container" data-aos="fade-up"  data-aos-duration="800" data-aos-easing="ease-in-out">
                 <h2>My Projects</h2>
                 <div class="projects-grid">
-                    <div class="project-card">
-                        <img src="ecommerce.png" alt="AI-Powered E-commerce Website">
+                    <div class="project-card" data-aos="fade-up" data-aos-delay="100" data-aos-duration="800" data-aos-easing="ease-in-out">
+                        <img src="images/ecommerce.png" alt="AI-Powered E-commerce Website">
                         <div class="project-info">
                             <h3>AI-Powered E-commerce Website</h3>
                             <p>A fully functional e-commerce site built with React and Next.js, featuring product listings, cart functionality, and secure checkout. Integrated with an AI-based recommendation system for personalized product suggestions.</p>
@@ -400,19 +125,8 @@
                             </div>
                         </div>
                     </div>
-                    <div class="project-card">
-                        <img src="disease.jpg" alt="AI Chatbot for Customer Service">
-                        <div class="project-info">
-                            <h3>AI Chatbot for Customer Service</h3>
-                            <p>Developed an AI-powered chatbot using Python and TensorFlow, integrated into a web application. The chatbot handles customer inquiries, processes natural language, and provides relevant responses.</p>
-                            <div class="project-links">
-                                <a href="#">Demo</a>
-                                <a href="#">GitHub</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="project-card">
-                        <img src="disease.jpg" alt="AI Chatbot for Customer Service">
+                    <div class="project-card" data-aos="fade-up" data-aos-delay="200" data-aos-duration="800" data-aos-easing="ease-in-out">
+                        <img src="images/disease.jpg" alt="AI Chatbot for Customer Service">
                         <div class="project-info">
                             <h3>AI Chatbot for Customer Service</h3>
                             <p>Developed an AI-powered chatbot using Python and TensorFlow, integrated into a web application. The chatbot handles customer inquiries, processes natural language, and provides relevant responses.</p>
@@ -427,10 +141,10 @@
         </section>
 
         <section id="contact">
-            <div class="container">
+            <div class="container" data-aos="fade-up" data-aos-duration="800" data-aos-easing="ease-in-out">
                 <h2>Get in Touch</h2>
                 <form id="contact-form">
-                    <div class="form-group">
+                    <div class="form-group" >
                         <label for="name">Name</label>
                         <input type="text" id="name" name="name" required>
                     </div>
@@ -448,52 +162,10 @@
         </section>
     </main>
 
+    <script src="js/main.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
-
-        // Header background change on scroll
-        window.addEventListener('scroll', () => {
-            const header = document.querySelector('header');
-            if (window.scrollY > 50) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
-            }
-        });
-
-        // Reveal sections on scroll
-        const revealSection = (entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                    observer.unobserve(entry.target);
-                }
-            });
-        };
-
-        const sectionObserver = new IntersectionObserver(revealSection, {
-            root: null,
-            threshold: 0.15,
-        });
-
-        document.querySelectorAll('section').forEach(section => {
-            sectionObserver.observe(section);
-        });
-
-        // Simple form submission (you'll need to implement the backend)
-        document.getElementById('contact-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('Thank you for your message! I will get back to you soon.');
-            this.reset();
-        });
+      AOS.init();
     </script>
 </body>
 </html>
