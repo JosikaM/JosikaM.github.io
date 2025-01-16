@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Josikamurthy - Frontend Developer & AI Enthusiast</title>
+    <style>
+        /* Reset and base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        /* Header styles */
+        header {
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style-type: none;
+            padding: 1rem 0;
+        }
+        nav ul li {
+            margin: 0 1rem;
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+        nav ul li a:hover {
+            color: #A881CD;
+        }
+        /* Hero section styles */
+        #home {
+            background-color:#A881CD;
+            color: #fff;
+            padding: 4rem 0;
+            text-align: center;
+        }
+        #home h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        #home p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+        .cta-button {
+            display: inline-block;
+            background-color: #fff;
+            color: #A881CD;
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+        .cta-button:hover {
+            background-color: #f1f1f1;
+        }
+        /* Section styles */
+        section {
+            padding: 4rem 0;
+        }
+        section h2 {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 2rem;
+        }
+        /* About section styles */
+        #about {
+            background-color: #f9f9f9;
+        }
+        /* Skills section styles */
+        #skills .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 2rem;
+            justify-items: center;
+        }
+        .skill-item {
+            text-align: center;
+        }
+        .skill-item img {
+            width: 50px;
+            height: 50px;
+            margin-bottom: 0.5rem;
+        }
+        /* Education section styles */
+        #education .education-item {
+            margin-bottom: 2rem;
+            padding-left: 1rem;
+            border-left: 4px solid #A881CD;
+        }
+        #education .education-item h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+        /* Projects section styles */
+        #projects .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        .project-card {
+            background-color: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .project-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .project-card .project-info {
+            padding: 1.5rem;
+        }
+        .project-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+        .project-card .project-links {
+            margin-top: 1rem;
+        }
+        .project-card .project-links a {
+            color:#A881CD;
+            text-decoration: none;
+            margin-right: 1rem;
+        }
+        /* Contact section styles */
+        #contact form {
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        #contact .form-group {
+            margin-bottom: 1.5rem;
+        }
+        #contact label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+        #contact input,
+        #contact textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        #contact button {
+            background-color: #A881CD;
+            color: #fff;
+            border: none;
+            padding: 0.8rem 2rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background-color 0.3s ease;
+        }
+        #contact button:hover {
+            background-color: #A881CD;
+        }
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            nav ul {
+                flex-wrap: wrap;
+            }
+            nav ul li {
+                margin: 0.5rem;
+            }
+            #home h1 {
+                font-size: 2rem;
+            }
+            #home p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home">
+            <div class="container">
+                <h1>Josikamurthy</h1>
+                <p>Frontend Developer | AI Enthusiast</p>
+                <a href="#contact" class="cta-button">Get in Touch</a>
+            </div>
+        </section>
+
+        <section id="about">
+            <div class="container">
+                <h2>About Me</h2>
+                <p>I'm a passionate web developer with a keen interest in AI and machine learning. With a strong foundation in frontend technologies and a growing expertise in AI, I strive to create innovative and user-friendly web applications that leverage the power of artificial intelligence.</p><br>
+                <p>My journey in tech started with mastering C and C++, which gave me a solid understanding of programming fundamentals. I then ventured into web development, becoming proficient in HTML, CSS, and JavaScript. Currently, I'm focused on modern frontend frameworks like React and Next.js, while also exploring the exciting world of AI and its applications in web development.</p>
+            </div>
+        </section>
+
+        <section id="skills">
+            <div class="container">
+                <h2>My Skills</h2>
+                <div class="skills-grid">
+                    <div class="skill-item">
+                        <img src="images1.png" alt="HTML">
+                        <span>HTML</span>
+                    </div>
+                    <div class="skill-item">
+                        <img src="image2.svg" alt="CSS">
+                        <span>CSS</span>
+                    </div>
+                    <div class="skill-item">
+                        <img src="images3.webp" alt="JavaScript">
+                        <span>JavaScript</span>
+                    </div>
+                    <div class="skill-item">
+                        <img src="React.webp" alt="React">
+                        <span>React</span>
+                    </div>
+                    <div class="skill-item">
+                        <img src="nextjs.png" alt="Next.js">
+                        <span>Next.js</span>
+                    </div>
+                    <div class="skill-item">
+                        <img src="images.jpeg" alt="Python">
+                        <span>Python</span>
+                    </div>
+                    <div class="skill-item">
+                        <img src="c.png" alt="C">
+                        <span>C</span>
+                    </div>
+                    <div class="skill-item">
+                        <img src="c++.png" alt="C++">
+                        <span>C++</span>
+                    </div>
+                    <div class="skill-item">
+                        <img src="TensorFlow.png" alt="TensorFlow">
+                        <span>TensorFlow</span>
+                    </div>
+                    <div class="skill-item">
+                        <img src="pytorch.png" alt="PyTorch">
+                        <span>PyTorch</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="education">
+            <div class="container">
+                <h2>Education</h2>
+                <div class="education-item">
+                    <h3>Bachelor of Computer Science and Engineering</h3>
+                    <p>Karpagam University</p>
+                    <p>2022 - 2026</p>
+                </div>
+                <div class="education-item">
+                    <h3>HSC</h3>
+                    <p>Nalandas Matric Hr Sec School</p>
+                    <p>2020</p>
+                </div>
+                <div class="education-item">
+                    <h3>SSLC</h3>
+                    <p>Govt Girls Hr Sec School</p>
+                    <p>2018</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects">
+            <div class="container">
+                <h2>My Projects</h2>
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <img src="ecommerce.png" alt="AI-Powered E-commerce Website">
+                        <div class="project-info">
+                            <h3>AI-Powered E-commerce Website</h3>
+                            <p>A fully functional e-commerce site built with React and Next.js, featuring product listings, cart functionality, and secure checkout. Integrated with an AI-based recommendation system for personalized product suggestions.</p>
+                            <div class="project-links">
+                                <a href="#">Demo</a>
+                                <a href="#">GitHub</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <img src="disease.jpg" alt="AI Chatbot for Customer Service">
+                        <div class="project-info">
+                            <h3>AI Chatbot for Customer Service</h3>
+                            <p>Developed an AI-powered chatbot using Python and TensorFlow, integrated into a web application. The chatbot handles customer inquiries, processes natural language, and provides relevant responses.</p>
+                            <div class="project-links">
+                                <a href="#">Demo</a>
+                                <a href="#">GitHub</a>
+                            </div>
+                        </div>
+                    </div>
+                
+
+                    <div class="project-card">
+                        <img src="disease.jpg" alt="AI Chatbot for Customer Service">
+                        <div class="project-info">
+                            <h3>AI Chatbot for Customer Service</h3>
+                            <p>Developed an AI-powered chatbot using Python and TensorFlow, integrated into a web application. The chatbot handles customer inquiries, processes natural language, and provides relevant responses.</p>
+                            <div class="project-links">
+                                <a href="#">Demo</a>
+                                <a href="#">GitHub</a>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <div class="container">
+                <h2>Get in Touch</h2>
+                <form id="contact-form">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" rows="4" required></textarea>
+                    </div>
+                    <button type="submit">Send Message</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Simple form submission (you'll need to implement the backend)
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your message! I will get back to you soon.');
+            this.reset();
+        });
+    </script>
+</body>
+</html>
+
