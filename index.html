@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Josikamurthy - Frontend Developer & AI Enthusiast</title>
+    <title>JosikaMurthy - Frontend Developer & AI Enthusiast</title>
     <style>
         /* Reset and base styles */
         * {
@@ -12,9 +12,10 @@
             box-sizing: border-box;
         }
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Arial', sans-serif;
             line-height: 1.6;
             color: #333;
+            overflow-x: hidden;
         }
         .container {
             width: 90%;
@@ -24,11 +25,17 @@
         }
         /* Header styles */
         header {
-            background-color: #fff;
+            background-color: rgba(255, 255, 255, 0.9);
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            position: sticky;
+            position: fixed;
             top: 0;
+            left: 0;
+            right: 0;
             z-index: 1000;
+            transition: background-color 0.3s ease;
+        }
+        header.scrolled {
+            background-color: #fff;
         }
         nav ul {
             display: flex;
@@ -50,18 +57,44 @@
         }
         /* Hero section styles */
         #home {
-            background-color:#A881CD;
+            background-color: #A881CD;
             color: #fff;
-            padding: 4rem 0;
+            padding: 8rem 0 4rem;
             text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        #home::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, #A881CD, #8A63A8);
+            transform: skewY(-5deg);
+            transform-origin: top left;
+            z-index: -1;
         }
         #home h1 {
-            font-size: 2.5rem;
+            font-size: 3rem;
             margin-bottom: 1rem;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.8s forwards;
         }
         #home p {
             font-size: 1.2rem;
             margin-bottom: 2rem;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.8s 0.2s forwards;
+        }
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
         .cta-button {
             display: inline-block;
@@ -71,19 +104,32 @@
             border-radius: 50px;
             text-decoration: none;
             font-weight: bold;
-            transition: background-color 0.3s ease;
+            transition: all 0.3s ease;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.8s 0.4s forwards;
         }
         .cta-button:hover {
             background-color: #f1f1f1;
+            transform: translateY(-3px);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
         }
         /* Section styles */
         section {
-            padding: 4rem 0;
+            padding: 6rem 0;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s, transform 0.8s;
+        }
+        section.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
         section h2 {
             text-align: center;
-            font-size: 2rem;
-            margin-bottom: 2rem;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #A881CD;
         }
         /* About section styles */
         #about {
@@ -98,21 +144,35 @@
         }
         .skill-item {
             text-align: center;
+            transition: transform 0.3s ease;
+        }
+        .skill-item:hover {
+            transform: translateY(-5px);
         }
         .skill-item img {
-            width: 50px;
-            height: 50px;
+            width: 60px;
+            height: 60px;
             margin-bottom: 0.5rem;
+            transition: transform 0.3s ease;
+        }
+        .skill-item:hover img {
+            transform: scale(1.1);
         }
         /* Education section styles */
         #education .education-item {
             margin-bottom: 2rem;
             padding-left: 1rem;
             border-left: 4px solid #A881CD;
+            transition: all 0.3s ease;
+        }
+        #education .education-item:hover {
+            transform: translateX(10px);
+            box-shadow: -5px 0 10px rgba(168, 129, 205, 0.2);
         }
         #education .education-item h3 {
             font-size: 1.2rem;
             margin-bottom: 0.5rem;
+            color: #A881CD;
         }
         /* Projects section styles */
         #projects .projects-grid {
@@ -125,11 +185,20 @@
             border-radius: 8px;
             overflow: hidden;
             box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
         }
         .project-card img {
             width: 100%;
             height: 200px;
             object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+        .project-card:hover img {
+            transform: scale(1.05);
         }
         .project-card .project-info {
             padding: 1.5rem;
@@ -137,14 +206,19 @@
         .project-card h3 {
             font-size: 1.2rem;
             margin-bottom: 1rem;
+            color: #A881CD;
         }
         .project-card .project-links {
             margin-top: 1rem;
         }
         .project-card .project-links a {
-            color:#A881CD;
+            color: #A881CD;
             text-decoration: none;
             margin-right: 1rem;
+            transition: color 0.3s ease;
+        }
+        .project-card .project-links a:hover {
+            color: #8A63A8;
         }
         /* Contact section styles */
         #contact form {
@@ -158,6 +232,7 @@
             display: block;
             margin-bottom: 0.5rem;
             font-weight: bold;
+            color: #A881CD;
         }
         #contact input,
         #contact textarea {
@@ -165,6 +240,12 @@
             padding: 0.8rem;
             border: 1px solid #ddd;
             border-radius: 4px;
+            transition: border-color 0.3s ease;
+        }
+        #contact input:focus,
+        #contact textarea:focus {
+            outline: none;
+            border-color: #A881CD;
         }
         #contact button {
             background-color: #A881CD;
@@ -174,10 +255,12 @@
             border-radius: 4px;
             cursor: pointer;
             font-size: 1rem;
-            transition: background-color 0.3s ease;
+            transition: all 0.3s ease;
         }
         #contact button:hover {
-            background-color: #A881CD;
+            background-color: #8A63A8;
+            transform: translateY(-3px);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
         }
         /* Responsive styles */
         @media (max-width: 768px) {
@@ -188,10 +271,16 @@
                 margin: 0.5rem;
             }
             #home h1 {
-                font-size: 2rem;
+                font-size: 2.5rem;
             }
             #home p {
                 font-size: 1rem;
+            }
+            section {
+                padding: 4rem 0;
+            }
+            section h2 {
+                font-size: 2rem;
             }
         }
     </style>
@@ -213,7 +302,7 @@
     <main>
         <section id="home">
             <div class="container">
-                <h1>Josikamurthy</h1>
+                <h1>JosikaMurthy</h1>
                 <p>Frontend Developer | AI Enthusiast</p>
                 <a href="#contact" class="cta-button">Get in Touch</a>
             </div>
@@ -322,8 +411,6 @@
                             </div>
                         </div>
                     </div>
-                
-
                     <div class="project-card">
                         <img src="disease.jpg" alt="AI Chatbot for Customer Service">
                         <div class="project-info">
@@ -335,8 +422,6 @@
                             </div>
                         </div>
                     </div>
-
-
                 </div>
             </div>
         </section>
@@ -374,6 +459,35 @@
             });
         });
 
+        // Header background change on scroll
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Reveal sections on scroll
+        const revealSection = (entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        };
+
+        const sectionObserver = new IntersectionObserver(revealSection, {
+            root: null,
+            threshold: 0.15,
+        });
+
+        document.querySelectorAll('section').forEach(section => {
+            sectionObserver.observe(section);
+        });
+
         // Simple form submission (you'll need to implement the backend)
         document.getElementById('contact-form').addEventListener('submit', function(e) {
             e.preventDefault();
@@ -383,4 +497,3 @@
     </script>
 </body>
 </html>
-
