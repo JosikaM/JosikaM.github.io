@@ -26,14 +26,14 @@ header {
     background-color: #ffffff;
     box-shadow: 0 4px 4px rgba(0,0,0,0.1);
     z-index: 999;
-    width: 98%;
-    margin: 10px auto ;
-    border-radius: 100px;
-    backdrop-filter: blur(5px);
-    transition: background-color 0.3s ease;
+    transition: all 0.5s ease-in-out;
 }
 header.scrolled {
-    background-color: #A881CD2a;
+    background-color: #ffffff2a;
+    margin: 10px auto ;
+    border-radius: 100px;
+    width: 98%;
+    backdrop-filter: blur(5px);
 }
 nav ul {
     display: flex;
