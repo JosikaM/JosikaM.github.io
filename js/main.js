@@ -63,30 +63,3 @@ const sectionObserver = new IntersectionObserver(revealSection, {
 document.querySelectorAll('section').forEach(section => {
     sectionObserver.observe(section);
 });
-
-// Simple form submission with EmailJS
-document.getElementById('contact-form').addEventListener('submit', function(e) {
-    e.preventDefault();
-
-    // Initialize EmailJS
-    emailjs.init('YOUR_USER_ID'); // Replace 'YOUR_USER_ID' with your EmailJS user ID
-
-    const serviceID = 'YOUR_SERVICE_ID'; // Replace with your EmailJS service ID
-    const templateID = 'YOUR_TEMPLATE_ID'; // Replace with your EmailJS template ID
-
-    const formData = {
-        user_name: document.getElementById('name').value,
-        user_email: document.getElementById('email').value,
-        message: document.getElementById('message').value,
-    };
-
-    emailjs.send(serviceID, templateID, formData)
-        .then(() => {
-            alert('Thank you for your message! I will get back to you soon.');
-            document.getElementById('contact-form').reset();
-        })
-        .catch((error) => {
-            console.error('Failed to send email:', error);
-            alert('Oops! Something went wrong. Please try again later.');
-        });
-});
