@@ -53,6 +53,26 @@ body {
     padding: 0 var(--spacing-sm);
 }
 
+.hover-title {
+    font-size: 3em; /* Large font size */
+    color: #f3ecec; /* Dark text color */
+    transition: color 0.3s ease, font-family 0.3s ease, font-weight 0.3s ease; /* Smooth transitions */
+    margin: 0; /* Remove default margin */
+    padding: 10px; /* Add some padding */
+    display: inline-block; /* Fit the background */
+}
+
+.hover-title:hover {
+    color: #a2a461; /* Tomato color on hover */
+    font-family: Papyrus, fantasy;
+    /* font-family: 'Courier New', Courier, monospace;  */
+    font-weight: bold; /* Change font weight */
+}
+
+/* .cta-button:hover {
+    background-color: #e5533d; 
+    transform: scale(1.05); 
+} */
 /* Header & Navigation */
 header {
     position: fixed;
