@@ -1439,11 +1439,70 @@ a {
 
 /* ==================== FOOTER ==================== */
 .footer {
-    padding: calc(var(--spacing-lg) + 60px) 0 var(--spacing-lg);
-    background: linear-gradient(to bottom, var(--bg-secondary) 0%, #0d0d15 100%);
+    padding: calc(var(--spacing-lg) + 80px) 0 var(--spacing-lg);
+    background: linear-gradient(to bottom, var(--bg-secondary) 0%, #050510 50%, #000000 100%);
     border-top: 1px solid var(--border-color);
     position: relative;
     overflow: hidden;
+}
+
+/* Animated gradient overlay */
+.footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 50% 0%,
+            rgba(0, 242, 254, 0.08) 0%,
+            transparent 50%);
+    animation: pulseGlow 8s ease-in-out infinite;
+    pointer-events: none;
+}
+
+@keyframes pulseGlow {
+
+    0%,
+    100% {
+        opacity: 0.3;
+    }
+
+    50% {
+        opacity: 0.6;
+    }
+}
+
+/* Floating particles effect */
+.footer::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image:
+        radial-gradient(2px 2px at 20% 30%, rgba(0, 242, 254, 0.3), transparent),
+        radial-gradient(2px 2px at 60% 70%, rgba(79, 172, 254, 0.3), transparent),
+        radial-gradient(1px 1px at 50% 50%, rgba(0, 242, 254, 0.2), transparent),
+        radial-gradient(1px 1px at 80% 10%, rgba(79, 172, 254, 0.2), transparent),
+        radial-gradient(2px 2px at 90% 60%, rgba(0, 242, 254, 0.25), transparent),
+        radial-gradient(1px 1px at 30% 80%, rgba(79, 172, 254, 0.2), transparent);
+    background-size: 200% 200%;
+    animation: floatParticles 20s ease-in-out infinite;
+    pointer-events: none;
+}
+
+@keyframes floatParticles {
+
+    0%,
+    100% {
+        background-position: 0% 0%, 100% 100%, 50% 50%, 80% 20%, 20% 80%, 60% 30%;
+    }
+
+    50% {
+        background-position: 100% 100%, 0% 0%, 30% 70%, 20% 80%, 80% 20%, 40% 70%;
+    }
 }
 
 .waves {
@@ -1451,8 +1510,9 @@ a {
     top: 0;
     left: 0;
     width: 100%;
-    height: 100px;
+    height: 120px;
     pointer-events: none;
+    z-index: 1;
 }
 
 .wave {
@@ -1465,32 +1525,38 @@ a {
 }
 
 .wave1 {
-    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120'%3E%3Cpath d='M0,60 C300,100 600,20 900,60 C1050,80 1150,60 1200,60 L1200,0 L0,0 Z' fill='rgba(0,242,254,0.1)'/%3E%3C/svg%3E");
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120'%3E%3Cpath d='M0,60 C300,100 600,20 900,60 C1050,80 1150,60 1200,60 L1200,0 L0,0 Z' fill='rgba(0,242,254,0.15)'/%3E%3C/svg%3E");
     background-size: 50% 100%;
     background-repeat: repeat-x;
-    animation: wave1 15s linear infinite;
-    opacity: 0.7;
+    animation: wave1 12s cubic-bezier(0.36, 0.45, 0.63, 0.53) infinite;
+    opacity: 0.8;
+    filter: drop-shadow(0 0 10px rgba(0, 242, 254, 0.3));
 }
 
 .wave2 {
-    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120'%3E%3Cpath d='M0,40 C300,80 600,0 900,40 C1050,60 1150,40 1200,40 L1200,0 L0,0 Z' fill='rgba(79,172,254,0.15)'/%3E%3C/svg%3E");
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120'%3E%3Cpath d='M0,40 C300,80 600,0 900,40 C1050,60 1150,40 1200,40 L1200,0 L0,0 Z' fill='rgba(79,172,254,0.2)'/%3E%3C/svg%3E");
     background-size: 50% 100%;
     background-repeat: repeat-x;
-    animation: wave2 20s linear infinite;
-    opacity: 0.5;
+    animation: wave2 16s cubic-bezier(0.36, 0.45, 0.63, 0.53) infinite;
+    opacity: 0.6;
+    filter: drop-shadow(0 0 8px rgba(79, 172, 254, 0.2));
 }
 
 .wave3 {
-    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120'%3E%3Cpath d='M0,80 C300,40 600,80 900,50 C1050,35 1150,70 1200,60 L1200,0 L0,0 Z' fill='rgba(0,242,254,0.05)'/%3E%3C/svg%3E");
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120'%3E%3Cpath d='M0,80 C300,40 600,80 900,50 C1050,35 1150,70 1200,60 L1200,0 L0,0 Z' fill='rgba(0,242,254,0.08)'/%3E%3C/svg%3E");
     background-size: 50% 100%;
     background-repeat: repeat-x;
-    animation: wave3 25s linear infinite;
-    opacity: 0.3;
+    animation: wave3 20s cubic-bezier(0.36, 0.45, 0.63, 0.53) infinite;
+    opacity: 0.4;
 }
 
 @keyframes wave1 {
     0% {
         transform: translateX(-50%) translateZ(0);
+    }
+
+    50% {
+        transform: translateX(-75%) translateZ(0) scaleY(1.1);
     }
 
     100% {
@@ -1503,6 +1569,10 @@ a {
         transform: translateX(-50%) translateZ(0);
     }
 
+    50% {
+        transform: translateX(-25%) translateZ(0) scaleY(0.9);
+    }
+
     100% {
         transform: translateX(0%) translateZ(0);
     }
@@ -1513,6 +1583,10 @@ a {
         transform: translateX(-50%) translateZ(0);
     }
 
+    50% {
+        transform: translateX(-62.5%) translateZ(0) scaleY(1.05);
+    }
+
     100% {
         transform: translateX(-75%) translateZ(0);
     }
@@ -1521,7 +1595,7 @@ a {
 .footer-content {
     text-align: center;
     position: relative;
-    z-index: 2;
+    z-index: 3;
 }
 
 .footer-logo {
@@ -1529,13 +1603,27 @@ a {
     align-items: center;
     justify-content: center;
     gap: var(--spacing-xs);
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     font-weight: 700;
     background: var(--gradient-primary);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
     margin-bottom: var(--spacing-sm);
+    animation: logoFloat 3s ease-in-out infinite;
+    filter: drop-shadow(0 0 10px rgba(0, 242, 254, 0.3));
+}
+
+@keyframes logoFloat {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-5px);
+    }
 }
 
 .footer-logo i {
@@ -1543,38 +1631,120 @@ a {
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
+    animation: iconSpin 10s linear infinite;
+    display: inline-block;
+}
+
+@keyframes iconSpin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
 }
 
 .footer-text {
     color: var(--text-secondary);
     margin-bottom: var(--spacing-md);
+    font-size: 0.95rem;
+    letter-spacing: 0.5px;
+    animation: fadeInUp 1s ease-out;
 }
 
 .social-icons {
     display: flex;
-    gap: var(--spacing-sm);
+    gap: var(--spacing-md);
     justify-content: center;
+    animation: fadeInUp 1s ease-out 0.3s both;
 }
 
 .social-link {
-    width: 45px;
-    height: 45px;
+    width: 50px;
+    height: 50px;
     border-radius: var(--radius-full);
-    background: var(--bg-card);
-    border: 1px solid var(--border-color);
+    background: rgba(26, 26, 36, 0.4);
+    border: 2px solid rgba(0, 242, 254, 0.3);
     display: flex;
     align-items: center;
     justify-content: center;
     color: var(--primary-color);
-    font-size: 1.2rem;
-    transition: var(--transition);
+    font-size: 1.3rem;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.social-link::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    border-radius: var(--radius-full);
+    background: var(--gradient-primary);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    z-index: -1;
+}
+
+.social-link:hover::before {
+    opacity: 1;
 }
 
 .social-link:hover {
-    background: var(--gradient-primary);
     color: var(--bg-dark);
-    transform: translateY(-5px) rotate(360deg);
-    box-shadow: var(--shadow-md);
+    transform: translateY(-8px) scale(1.1);
+    box-shadow: 0 8px 25px rgba(0, 242, 254, 0.4);
+    border-color: transparent;
+}
+
+.social-link i {
+    position: relative;
+    z-index: 1;
+    transition: transform 0.4s ease;
+}
+
+.social-link:hover i {
+    transform: rotateY(360deg);
+}
+
+.social-link:nth-child(1) {
+    animation: socialBounce 2s ease-in-out infinite;
+    animation-delay: 0s;
+}
+
+.social-link:nth-child(2) {
+    animation: socialBounce 2s ease-in-out infinite;
+    animation-delay: 0.2s;
+}
+
+.social-link:nth-child(3) {
+    animation: socialBounce 2s ease-in-out infinite;
+    animation-delay: 0.4s;
+}
+
+.social-link:nth-child(4) {
+    animation: socialBounce 2s ease-in-out infinite;
+    animation-delay: 0.6s;
+}
+
+.social-link:nth-child(5) {
+    animation: socialBounce 2s ease-in-out infinite;
+    animation-delay: 0.8s;
+}
+
+@keyframes socialBounce {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-3px);
+    }
 }
 
 /* ==================== RESPONSIVE DESIGN ==================== */
